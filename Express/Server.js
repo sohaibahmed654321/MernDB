@@ -2,6 +2,7 @@ let express= require("express");
 let r = require("./Routing/route");
 let db = require("./Connect");
 let user = require("./Collection/User")
+let cors = require("cors");
 require("dotenv").config()
 
 let port = process.env.PORT ||1000
@@ -11,6 +12,7 @@ application.use(express.json())
 application.use("/Web/",r);
 
 //Add data collection
+application.use(cors());
 
 let add_user=async function(){
     try{
